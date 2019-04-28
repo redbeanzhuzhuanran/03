@@ -59,5 +59,30 @@ int main()
                 
     //输出地址值
     cout<< "字符串起始地址值：" <<static_cast<const void *>(pszStr)<< endl;
+    cout << "字符串指针的地址值：" << &pszStr<< endl;
     return 0;
 }
+
+例3：
+#include<iostream>
+#include<string>
+using namespace std;
+
+void print(char * a) {
+	cout << &a << endl;
+	cout << static_cast<void *>(a) << endl;
+	cout << a << endl;
+	cout << *(a + 3) << endl;
+
+}
+
+int main()
+{
+	string s = "I love Zhugeanran";
+	cout << &s << endl;
+	char *b = &s[0];
+	cout << static_cast<void *>(b)<< endl;
+	print(&s[0]);
+
+}
+好好体会，其实传地址传值本质都是拷贝
